@@ -1,30 +1,27 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <component :is="layout">
+    <router-view/>
+  </component>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import DefaultLayout from '@/layouts/DefaultLayout'
+import AuthLayout from '@/layouts/AuthLayout'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  components: {
+    DefaultLayout,
+    AuthLayout
+  },
+  computed: {
+    layout () {
+      return this.$route.meta.layout
     }
   }
 }
+</script>
+
+<style lang="scss">
+@import '@/assets/styles/main.scss';
 </style>
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>
