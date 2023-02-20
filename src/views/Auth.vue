@@ -10,7 +10,7 @@ export default {
   components: {
     AuthForm
   },
-  beforeCreate () {
+  mounted () {
     this.$store.dispatch('users/getUsersList')
   }
 }

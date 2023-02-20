@@ -30,7 +30,7 @@ export default {
     TodosAddTodo,
     TodosList
   },
-  beforeCreate () {
+  mounted () {
     this.$store.dispatch('auth/getUser', this.$route.params.id)
     this.$store.dispatch('users/getUsersList')
     this.$store.dispatch('todos/getTodosList')
